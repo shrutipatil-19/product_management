@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StockMovementsController;
 use App\Http\Controllers\StockMovementController;
@@ -42,3 +43,17 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
 Route::get('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+
+Route::prefix('cart')->group(function(){
+    Route::get('/', [CartController::class,'index'])->name('cart.index');
+    Route::post('/add/{id}', [CartController::class,'addToCart'])->name('cart.add');
+    Route::post('/update/{id}', [CartController::class,'updateCart'])->name('cart.update');
+    Route::delete('/remove/{id}', [CartController::class,'removeFromCart'])->name('cart.remove');
+});
+
+Route::prefix('orders')->group(function(){
+    Route::get('/', [OrderController::class,'index'])->name('orders.index');
+    Route::get('/{id}', [OrderController::class,'show'])->name('orders.show');
+    Route::post('/create', [OrderController::class,'createOrder'])->name('orders.create');
+});
