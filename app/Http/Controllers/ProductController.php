@@ -29,8 +29,8 @@ class ProductController extends Controller
         //     $imagePath = $request->file('image')->store('products', 'public');
         // }
         $imagePaths = [];
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $img) {
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $img) {
                 $path = $img->store('products', 'public');
                 $imagePaths[] = $path;
             }
