@@ -2,24 +2,26 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    @include('project_management.partial.styleLink')
-    @stack('styles')
+    @include('admin.partial.styleLink')
+    @stack('custom-style')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
-    <div class="container-scroller">
-        @include('project_management.partial.header')
-        <div class="container-fluid page-body-wrapper">
-            @include('project_management.partial.sidebar')
-            @yield('content')
+    <div class="main-wrapper">
+        @include('admin.partial.sidebar')
+        <div class="page-wrapper">
+            @include('admin.partial.header')
+            @yield('page-content')
+            @include('admin.partial.footer')
         </div>
-        @include('project_management.partial.footer')
     </div>
-    @include('project_management.partial.jsLink')
+
     @stack('scripts')
+
+    @include('admin.partial.jsLink')
+
 </body>
 
 </html>
