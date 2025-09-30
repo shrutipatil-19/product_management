@@ -1,6 +1,6 @@
 @extends('frontend.layout.app')
 
-@section('content')
+@section('page-content')
 <div class="container">
     <h2>Checkout</h2>
 
@@ -12,7 +12,7 @@
     <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
 
-    <form action="{{ route('checkout.payment') }}" method="POST">
+    <form action="{{ route('checkout.payment') }}" method="POST"class="mt-5">
         @csrf
         <div class="mb-3">
             <label>Name</label>
