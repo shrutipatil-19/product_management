@@ -73,14 +73,6 @@
                             <label class="form-label">Email</label>
                             <input type="email" name="email" class="form-control" required>
                         </div>
-                        <div class="mb-3 col-12">
-                            <label class="form-label">Role</label>
-                            <select name="role" class="form-control">
-                                <option value="admin">Admin</option>
-                                <option value="User">User</option>
-                               
-                            </select>
-                        </div>
                         <div class="mb-3 col-6">
                             <label class="form-label">Password</label>
                             <input type="password" name="password" class="form-control" required>
@@ -92,7 +84,7 @@
                         <button type="submit" class="btn btn-primary">Register</button>
                     </form>
                     <div class="register-link">
-                        <p class="mt-3">Already have an account? <a href="{{ route('login') }}">Login</a></p>
+                        <p class="mt-3">Already have an account? <a href="{{ route('loginNormal') }}">Login</a></p>
                     </div>
                 </div>
             </div>

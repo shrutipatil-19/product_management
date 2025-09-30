@@ -79,4 +79,10 @@ class OrderController extends Controller
         $order = Order::with('items.product')->findOrFail($id);
         return view('frontend/pages/checkout', compact('order'));
     }
+
+    public function list()
+    {
+        $Orders = Order::get();
+        return view('admin/pages/order/list', compact('Orders'));
+    }
 }

@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function register()
     {
-        return view('admin.Register');
+        return view('frontend.Register');
     }
 
     public function storeUser(Request $request)
@@ -19,7 +19,7 @@ class UserController extends Controller
         $validate = $request->validate([
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|confirmed',
-            'role' => 'required'
+            'role' => 'nullable'
         ]);
         $user = User::create([
             'name' => $request->name,
@@ -43,8 +43,30 @@ class UserController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             $user = Auth::user();
 
-            if (in_array($user->role, ['admin', 'staff',])) {
-                return redirect()->route('addProduct');
+            if (in_array($user->role, ['admin'])) {
+                return redirect()->route('dashboard');
+            }
+
+            return redirect()->route('loginNormal')->withErrors(['email' => 'Unauthorized role.']);
+        }
+        return back()->withErrors(['email' => 'Invalid Credentials']);
+    }
+    public function loginNormal()
+    {
+        return view('frontend.Login');
+    }
+    public function loginNormalUser(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        if (Auth::attempt($request->only('email', 'password'))) {
+            $user = Auth::user();
+
+            if (in_array($user->role, ['', 'user'])) {
+                return redirect()->route('home');
             }
 
             return redirect()->route('login')->withErrors(['email' => 'Unauthorized role.']);
@@ -61,7 +83,8 @@ class UserController extends Controller
         return redirect()->route('login');
     }
 
-    public function createUser(){
+    public function createUser()
+    {
         return view('admin.pages.user.add-user');
     }
 }

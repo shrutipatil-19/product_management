@@ -36,7 +36,7 @@
                 <div class="collapse" data-bs-parent="#sidebarNav" id="emails">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('listProduct') }}" class="nav-link">List Products</a>
+                            <a href="{{ route('productList') }}" class="nav-link">List Products</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('addProduct') }}" class="nav-link">Add Products</a>
@@ -53,7 +53,7 @@
             </li>
           
             <li class="nav-item mt-2">
-                <a href="{{ route('listCustomer') }}" class="nav-link">
+                <a href="{{ route('orderList') }}" class="nav-link">
                     <i class="link-icon" data-feather="hash"></i>
                     <span class="link-title">Order List</span>
                 </a>

@@ -27,6 +27,7 @@
                                     <th>Quantity</th>
 
                                     <th>image</th>
+                                    <th>Created at</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -40,12 +41,14 @@
                                     <td>{{ $product->quantity }}</td>
                                     <td>
                                         @php
-                                        $images = json_decode($product->images, true);
+                                        $images = json_decode($product->image, true);
                                         $firstImage = $images[0] ?? null;
                                         @endphp
 
                                         @if (!empty($product->imagefile1))
-                                        <img src="{{ url('storage/app/public/' . $product->imagefile1) }}" alt="{{ $product->name }}" width="50" height="50" style="object-fit: cover; margin-right: 5px;">
+
+                                        <img src="{{ url('storage/app/public/' . $img) }}"
+                                            alt="{{ $product->name }}" width="50" height="50" style="object-fit: cover; margin-right: 5px;">
                                         @elseif (!empty($firstImage))
                                         <img src="{{ url('storage/app/public/' . $firstImage) }}" alt="{{ $product->name }}" width="50" height="50" style="object-fit: cover; margin-right: 5px;">
                                         @else
@@ -56,12 +59,12 @@
                                     <td>{{ $product->created_at }}</td>
                                     <td>
                                         <!-- Edit Icon -->
-                                        <a href="" style="margin-right: 8px;">
+                                        <a href="{{ route('editProduct', $product->id) }}" style="margin-right: 8px;">
                                             <i data-feather="edit"></i>
                                         </a>
 
                                         <!-- Delete Icon as a Form -->
-                                        <form action="" method="POST" style="display:inline;">
+                                        <form action="{{ route('deleteProduct', $product->id) }}" method="POST" style="display:inline;">
                                             @csrf
                                             @method('DELETE')
                                             <a href="#" onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this Product?')) this.closest('form').submit();">
