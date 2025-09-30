@@ -25,7 +25,7 @@
                 </a>
             </li>
 
-            @canany('all-access')
+           
             <li class="nav-item nav-category">Products</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
@@ -86,9 +86,7 @@
                     </ul>
                 </div>
             </li>
-            @endcanany
-
-            @can('admin-access')
+           
             <li class="nav-item">
                 <a href="{{ route('addUser') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
@@ -121,7 +119,7 @@
                     <span class="link-title">Settings</span>
                 </a>
             </li>
-            @endcan
+           
         </ul>
     </div>
 </nav>
