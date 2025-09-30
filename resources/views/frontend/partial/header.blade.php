@@ -25,7 +25,7 @@
                         <li class="nav-item">
                             <a class="nav-link me-4" href="#mobile-products">Products</a>
                         </li>
-                        <a href="{{ route('login') }}">
+                        <a href="{{ route('loginNormal') }}">
                             <span class="material-symbols-outlined">
                                 account_circle
                             </span>

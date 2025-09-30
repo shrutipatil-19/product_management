@@ -84,12 +84,16 @@
                                             <use xlink:href="#cart-outline"></use>
                                         </svg>
                                     </a> -->
-                                    <a href="{{ route('cart.add', $product->id) }}" class="btn btn-medium btn-black">
-                                        Add to Cart
-                                        <svg class="cart-outline">
-                                            <use xlink:href="#cart-outline"></use>
-                                        </svg>
-                                    </a>
+                                    <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-medium btn-black">
+                                            Add to Cart
+                                            <svg class="cart-outline">
+                                                <use xlink:href="#cart-outline"></use>
+                                            </svg>
+                                        </button>
+                                    </form>
+
 
                                 </div>
                             </div>
@@ -97,7 +101,7 @@
                                 <h3 class="card-title text-uppercase">
                                     <a href="#">{{ $product->name }}</a>
                                 </h3>
-                                <span class="item-price text-primary">${{ $product->price }}</span>
+                                <span class="item-price text-primary">₹{{ $product->price }}</span>
                             </div>
                         </div>
                     </div>

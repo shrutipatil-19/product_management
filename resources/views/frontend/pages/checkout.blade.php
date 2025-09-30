@@ -29,9 +29,9 @@
                                 <img src="{{ $item['image'] }}" class="w-12 h-12 mr-2" alt="{{ $item['name'] }}">
                                 {{ $item['name'] }}
                             </td>
-                            <td class="p-2 border">${{ number_format($item['price'],2) }}</td>
+                            <td class="p-2 border">₹{{ number_format($item['price'],2) }}</td>
                             <td class="p-2 border">{{ $item['quantity'] }}</td>
-                            <td class="p-2 border">${{ number_format($item['price'] * $item['quantity'],2) }}</td>
+                            <td class="p-2 border">₹{{ number_format($item['price'] * $item['quantity'],2) }}</td>
                         </tr>
                         @endforeach
                     </tbody>

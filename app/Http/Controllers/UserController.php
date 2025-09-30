@@ -65,14 +65,16 @@ class UserController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             $user = Auth::user();
 
-            if (in_array($user->role, ['', 'user'])) {
+            if (empty($user->role) || $user->role === 'user') {
                 return redirect()->route('home');
             }
 
-            return redirect()->route('login')->withErrors(['email' => 'Unauthorized role.']);
+            return redirect()->route('user.login')->withErrors(['email' => 'Unauthorized role.']);
         }
+
         return back()->withErrors(['email' => 'Invalid Credentials']);
     }
+
     public function logout(Request $request)
     {
 
