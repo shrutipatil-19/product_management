@@ -44,81 +44,21 @@
                     </ul>
                 </div>
             </li>
-
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">
-                    <i class="link-icon" data-feather="mail"></i>
-                    <span class="link-title">Stock Movements</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                <div class="collapse" data-bs-parent="#sidebarNav" id="uiComponents">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="{{ route('stockIn') }}" class="nav-link">Stock In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('listStockOut') }}" class="nav-link">Stock Out</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Movement History</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#uiComponentsStock" role="button" aria-expanded="false" aria-controls="uiComponents">
-                    <i class="link-icon" data-feather="mail"></i>
-                    <span class="link-title">Reports</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                <div class="collapse" data-bs-parent="#sidebarNav" id="uiComponentsStock">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Low Stock Report Stock</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">History per Product</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Stock Value Report</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
            
             <li class="nav-item">
                 <a href="{{ route('addUser') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Add Users</span>
+                    <span class="link-title">List Customer</span>
                 </a>
             </li>
-            <!-- <p>Business Access is working!</p> -->
-            <li class="nav-item nav-category">Suppliers</li>
-            <li class="nav-item">
-                <a href="{{ route('addSupplier') }}" class="nav-link">
-                    <i class="link-icon" data-feather="hash"></i>
-                    <span class="link-title">Add Supplier</span>
-                </a>
-            </li>
+          
             <li class="nav-item mt-2">
                 <a href="{{ route('listCustomer') }}" class="nav-link">
                     <i class="link-icon" data-feather="hash"></i>
-                    <span class="link-title">Customer</span>
+                    <span class="link-title">Order List</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="" class="nav-link">
-                    <i class="link-icon" data-feather="hash"></i>
-                    <span class="link-title">Manage Suppliers</span>
-                </a>
-            </li>
-            <li class="nav-item mt-2">
-                <a href="" class="nav-link">
-                    <i class="link-icon" data-feather="hash"></i>
-                    <span class="link-title">Settings</span>
-                </a>
-            </li>
+           
            
         </ul>
     </div>
